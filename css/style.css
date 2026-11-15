@@ -1,0 +1,291 @@
+/* Базовые настройки */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --wine: #7b1e2b;          /* основной бордовый */
+    --wine-dark: #5a1420;     /* тёмный бордовый */
+    --wine-light: #a13a48;    /* светлый бордовый */
+    --cream: #fdf6f0;         /* фон */
+    --text: #2b1a1d;          /* основной текст */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+    background-color: var(--cream);
+    color: var(--text);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+    width: 100%;
+}
+
+/* Шапка */
+.site-header {
+    background-color: var(--wine);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.site-name {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.main-nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: background-color 0.25s;
+    display: inline-block;
+}
+
+.main-nav a:hover {
+    background-color: var(--wine-light);
+}
+
+/* Секции */
+.section {
+    margin: 40px 0;
+    scroll-margin-top: 90px;
+}
+
+.section h2 {
+    color: var(--wine);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 3px solid var(--wine);
+    display: inline-block;
+}
+
+/* Блок "Обо мне" */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.about-photo {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--wine);
+    box-shadow: 0 4px 12px rgba(123, 30, 43, 0.25);
+    flex-shrink: 0;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 240px;
+}
+
+.about-text p {
+    margin-bottom: 12px;
+}
+
+/* Сетка карточек */
+/* Сетка задает карточкам узкую ширину и выстраивает их в ряд */
+.cards-grid {
+    display: grid;
+    /* Задаем фиксированную ширину карточки в 220px (как на фото) */
+    grid-template-columns: repeat(auto-fill, 220px); 
+    gap: 24px;
+    align-items: start; /* Карточки не растягиваются в высоту */
+}
+
+/* Сама карточка */
+.card {
+    background: #fff;
+    border-radius: 10px; 
+    /* ВОЗВРАЩАЕМ БЕЛЫЕ ПОЛЯ: добавляем отступы со всех сторон */
+    padding: 12px;       
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(123, 30, 43, 0.1);
+    /* overflow: hidden; можно убрать, так как поля теперь внутри */
+}
+
+/* Фото */
+.card-image {
+    display: block;
+    width: 100%;       /* Занимает ширину карточки ЗА ВЫЧЕТОМ отступов */
+    height: auto;      /* Пропорции сохраняются */
+    border-radius: 6px; /* Скругляем углы у самого фото, чтобы оно смотрелось аккуратно */
+    object-fit: unset;
+}
+
+/* Блок с текстом */
+.card-content {
+    padding: 10px 4px 0 4px; /* Небольшой отступ для текста, чтобы он был на одной линии с фото */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Настройки текста */
+.card-title {
+    color: var(--wine-dark);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.card-desc {
+    font-size: 0.85rem;
+    margin: 0;
+    color: #555;
+}
+
+.card-link {
+    color: var(--wine);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+/* Фандомы */
+.planned-card h4 {
+    color: var(--wine-dark);
+    margin-top: 8px;
+}
+
+.fandoms {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.fandoms li {
+    background-color: #f4e3e6;
+    border-left: 4px solid var(--wine);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: var(--wine-dark);
+}
+
+/* Контакты */
+.contacts-content {
+    background: #fff;
+    border: 1px solid #e6d5d8;
+    border-top: 4px solid var(--wine);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(123, 30, 43, 0.08);
+}
+
+.contacts-content p {
+    margin-bottom: 14px;
+}
+
+.tg-link {
+    display: inline-block;
+    background-color: var(--wine);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.25s;
+}
+
+.tg-link:hover {
+    background-color: var(--wine-dark);
+}
+
+/* Подвал */
+.site-footer {
+    background-color: var(--wine-dark);
+    color: #f4e3e6;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* Стили для страницы отдельной работы */
+.work-detail {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.back-link {
+    display: inline-block;
+    color: var(--wine);
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 20px;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: var(--wine-light);
+}
+
+.detail-image {
+    width: 100%;
+    max-width: 400px; /* Чтобы обложка не была слишком огромной */
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 4px 12px rgba(123, 30, 43, 0.2);
+}
+
+.detail-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #e6d5d8;
+    border-top: 4px solid var(--wine);
+    line-height: 1.8;
+}
+
+.detail-content h3 {
+    color: var(--wine);
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.detail-content p {
+    margin-bottom: 10px;
+}
