@@ -289,3 +289,81 @@ main {
 .detail-content p {
     margin-bottom: 10px;
 }
+
+/* ==========================================
+   АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ
+   ========================================== */
+
+@media (max-width: 768px) {
+    
+    /* --- 1. Шапка и меню --- */
+    .header-container {
+        flex-direction: column; /* Имя и меню станут друг под другом */
+        padding: 12px 16px;
+        gap: 10px;
+    }
+
+    .site-name {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    .main-nav ul {
+        justify-content: center; /* Меню по центру */
+        gap: 6px;
+    }
+
+    .main-nav a {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+
+    /* --- 2. Блок "Обо мне" --- */
+    .about-content {
+        flex-direction: column; /* Фото и текст друг под другом */
+        text-align: center;
+        gap: 20px;
+    }
+
+    .about-photo {
+        width: 140px; /* Чуть уменьшаем фото на телефоне */
+        height: 140px;
+    }
+
+    /* --- 3. Карточки работ --- */
+    .cards-grid {
+        /* На телефонах делаем 1 или 2 колонки. 
+           Если экран узкий — карточка будет на всю ширину */
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 16px;
+    }
+
+    .card {
+        padding: 10px; /* Уменьшаем белую рамку */
+    }
+
+    /* --- 4. Страница отдельной работы (work1.html) --- */
+    .work-detail h2 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .detail-content {
+        padding: 20px; /* Уменьшаем отступы внутри текста */
+    }
+    
+    .detail-image {
+        margin: 15px auto; /* Центрируем обложку */
+    }
+
+    /* --- 5. Блок контактов --- */
+    .contacts-content {
+        padding: 20px 15px;
+    }
+    
+    .tg-link {
+        width: 100%; /* Кнопка ТГ на всю ширину экрана */
+        text-align: center;
+        box-sizing: border-box;
+    }
+}
