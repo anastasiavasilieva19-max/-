@@ -77,6 +77,19 @@ main {
     background-color: var(--wine-light);
 }
 
+.site-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+/* Стили для самой картинки */
+.site-logo img {
+    max-height: 60px; /* Ограничиваем высоту логотипа (чтобы шапка не стала огромной) */
+    width: auto;      /* Ширина подстроится автоматически */
+    display: block;
+}
+
 /* Секции */
 .section {
     margin: 40px 0;
@@ -121,33 +134,37 @@ main {
 }
 
 /* Сетка карточек */
-/* Сетка задает карточкам узкую ширину и выстраивает их в ряд */
 .cards-grid {
     display: grid;
-    /* Задаем фиксированную ширину карточки в 220px (как на фото) */
     grid-template-columns: repeat(auto-fill, 220px); 
     gap: 24px;
-    align-items: start; /* Карточки не растягиваются в высоту */
+    align-items: start;
 }
 
 /* Сама карточка */
 .card {
     background: #fff;
     border-radius: 10px; 
-    /* ВОЗВРАЩАЕМ БЕЛЫЕ ПОЛЯ: добавляем отступы со всех сторон */
     padding: 12px;       
     display: flex;
     flex-direction: column;
     box-shadow: 0 4px 12px rgba(123, 30, 43, 0.1);
-    /* overflow: hidden; можно убрать, так как поля теперь внутри */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.card:hover {
+    transform: scale(1.03); 
+
+    box-shadow: 0 12px 24px rgba(123, 30, 43, 0.25);
+    
 }
 
 /* Фото */
 .card-image {
     display: block;
-    width: 100%;       /* Занимает ширину карточки ЗА ВЫЧЕТОМ отступов */
-    height: auto;      /* Пропорции сохраняются */
-    border-radius: 6px; /* Скругляем углы у самого фото, чтобы оно смотрелось аккуратно */
+    width: 100%;    
+    height: auto;  
+    border-radius: 6px; 
     object-fit: unset;
 }
 
@@ -173,11 +190,25 @@ main {
 }
 
 .card-link {
-    color: var(--wine);
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 0.9rem;
-    margin-top: 4px;
+     display: inline-block;   
+    background-color: var(--wine); 
+    color: #fff;               
+    padding: 8px 16px;          
+    border-radius: 6px;        
+    text-decoration: none;       
+    font-weight: 600;         
+    font-size: 0.9rem;         
+    text-align: center;          
+    align-self: flex-start;     
+    margin-top: 8px;           
+    transition: background-color 0.25s, transform 0.2s; 
+}
+
+.card-link:hover {
+    background-color: var(--wine-dark); /* Темнеет при наведении */
+    color: #fff; 
+    text-decoration: none;   
+    transform: translateY(-2px); /* Легкое поднятие кнопки вверх */
 }
 
 /* Фандомы */
@@ -366,4 +397,69 @@ main {
         text-align: center;
         box-sizing: border-box;
     }
+
+     /* Выравнивание текста "Обо мне" по ширине на телефоне */
+    .about-text {
+        text-align: justify; /* Текст растягивается по обоим краям */
+        text-align-last: left; /* Последняя строка остается по центру (опционально) */
+    }
+    
+    .about-text p {
+        margin-bottom: 15px; /* Чуть увеличиваем отступ между абзацами */
+    }
+}
+
+/* Контейнер для кнопок */
+.read-buttons {
+    display: flex;
+    gap: 12px; /* Расстояние между кнопками */
+    margin-top: 20px;
+    flex-wrap: wrap; /* Если экран слишком узкий, кнопки перенесутся */
+}
+
+/* Стили самих кнопок (если вы не используете tg-link) */
+.read-btn {
+    display: inline-block;
+    background-color: var(--wine);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background-color 0.25s;
+    text-align: center;
+    flex: 1; /* Кнопки делят пространство поровну */
+    min-width: 140px; /* Чтобы они не были слишком узкими */
+}
+
+.read-btn:hover {
+    background-color: var(--wine-dark);
+}
+
+/* Блок с кнопкой возврата внизу страницы */
+.bottom-return {
+    text-align: center; /* Центрируем кнопку */
+    margin-top: 40px;   /* Отделяем от основного текста */
+    margin-bottom: 20px;
+    padding-top: 20px;
+    border-top: 1px dashed #e6d5d8; /* Красивая пунктирная линия-разделитель */
+}
+
+/* Стили для самой кнопки (если хотите сделать её объемной) */
+.bottom-return .back-link {
+    display: inline-block;
+    padding: 10px 24px;
+    background-color: transparent;
+    border: 2px solid var(--wine);
+    border-radius: 8px;
+    color: var(--wine);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.bottom-return .back-link:hover {
+    background-color: var(--wine);
+    color: #fff;
 }
